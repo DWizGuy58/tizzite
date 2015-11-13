@@ -1,11 +1,31 @@
+<!doctype html>
 <html>
   <head>
+  	<meta charset="utf-8">
+
 	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+	<!-- jQuery + Underscore + Backbone -->
+	<script src="static/js/jquery-2.1.3.min.js"></script>
+	<script src="static/js/underscore-1.8.3.js"></script>
+	<script src="static/js/backbone-1.2.3.js"></script>
+
+	<!-- Firebase -->
+	<script src="static/js/firebase-2.3.1.js"></script>
+
+	<!-- BackboneFire -->
+	<script src="static/js/backbonefire-0.5.1.js"></script>
   </head>
   <body>
-  	<input type='text' id='nameInput' placeholder='Name'>
-    <input type='text' id='messageInput' placeholder='Message'>
+  	<!-- <input type='text' id='nameInput' placeholder='Name'>
+    <input type='text' id='messageInput' placeholder='Message'> -->
+
+    <div id="todoapp">
+      <ul id="todo-list"></ul>
+      <input type="text" id="new-todo" placeholder="New Todo" />
+      <button id="add-todo">Add</button>
+    </div>
     <script src='static/js/main.js'></script>
   </body>
 </html>
