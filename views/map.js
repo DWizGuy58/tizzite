@@ -14,7 +14,7 @@ function initialize() {
 
     eventsCollection = new EventsCollection();
     eventsCollection.on('sync', function(collection) {
-
+        plotExistingPoints(collection);
     });
 
     map.addListener('click', function(e) {
@@ -24,16 +24,10 @@ function initialize() {
 }
 
 function createEvent(latLng, map) {
-    var lat = latLng.lat();
-    var lng = latLng.lng();
-
-    console.log('lat: ' + lat);
-    console.log('lng: ' + lng);
-
     eventsCollection.create({
         latLng: {
-            lat: lat,
-            lng: lng
+            lat: latLng.lat(),
+            lng: latLng.lng()
         }
     });
 
@@ -79,8 +73,8 @@ function showMyLocation() {
 function plotExistingPoints(collection) {
     collection.each(function(event) {
 
-        var pos = new google.maps.LatLng(event.latLng.lat,
-                    event.latLng.lng);
+        var pos = new google.maps.LatLng(event.get('latLng').lat,
+                    event.get('latLng').lng);
 
         var marker = new google.maps.Marker({
             map: map,
