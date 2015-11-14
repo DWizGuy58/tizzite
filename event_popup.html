@@ -13,8 +13,18 @@
 
 		<!-- BackboneFire -->
 		<script src="requirements/backbonefire-0.5.1.js"></script>
+
+		<script src='static/js/views/event_view.js'></script>
+		<script src='static/js/models/event.js'></script>
 	</head>
 	<body>
+		<div id="event-popover">
+			<h1 id="event-name"></h1>
+		</div>
 
+		<script>
+			var testEvent = new Event();
+			var eventView = new EventView({model: testEvent});
+		</script>
 	</body>
 </html>
