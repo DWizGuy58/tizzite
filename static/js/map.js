@@ -1,4 +1,4 @@
-var map, pointarray, positiveHeatmap, infowindow
+var map
 
 function initialize() {
 
@@ -12,42 +12,26 @@ function initialize() {
     map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
 
-
     map.addListener('click', function(e) {
         createEvent(e.latLng, map);
-        //viewEvent(e.latLng, map);
     });
 
 }
 
-function createEvent(latlng, map) {
+function createEvent(latLng, map) {
     var marker = new google.maps.Marker({
         position: latLng,
         map: map,
         animation: google.maps.Animation.DROP
     });
-    map.panTo(latLng);
-    // TODO: create popup and data
+
+    google.maps.event.addListener(marker, 'click', viewEvent);
+
 }
 
+// TODO: bring up popup and event data
+function viewEvent() {
 
-// Initializes the data used for map display windows
-function loadContent(iw, id){
-    $.get("infowindow_stuff", {
-        name: "Test"})
-            .done(function(data) {
-                iw.setContent(data);
-            })
-            .fail(function(data) {
-                iw.setContent("Unable to retrieve data");
-            });
-}
-
-// Refreshes window with updated content information following a user's click
-function updateWindow(location) {
-    loadContent(infowindow, location);
-    infowindow.setPosition(location);
-    infowindow.open(map);
 }
 
 // Shows user's location on map
@@ -65,7 +49,6 @@ function showMyLocation() {
                 animation: google.maps.Animation.DROP
             });
 
-            map.setCenter(pos);
         }, function () {
             handleNoGeolocation(true);
         });
