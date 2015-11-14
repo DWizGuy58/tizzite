@@ -1,0 +1,24 @@
+html, body {
+    position: relative;
+    height: 100%;
+    margin: 0px;
+    padding: 0px
+}
+#map-view {
+    position: relative;
+    height: 100%;
+}
+#map-canvas {
+    position: relative;
+    height: 100%;
+}
+
+#panel {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    margin-left: -180px;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 5px;
+}
