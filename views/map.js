@@ -1,7 +1,7 @@
 var map
+var eventsCollection
 
 function initialize() {
-
     var mapOptions = {
         zoom: 12,
         center: new google.maps.LatLng(49.282875, -123.120464),
@@ -12,6 +12,11 @@ function initialize() {
     map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
 
+    eventsCollection = new EventsCollection();
+    eventsCollection.on('sync', function(collection) {
+
+    });
+
     map.addListener('click', function(e) {
         createEvent(e.latLng, map);
     });
@@ -19,6 +24,19 @@ function initialize() {
 }
 
 function createEvent(latLng, map) {
+    var lat = latLng.lat();
+    var lng = latLng.lng();
+
+    console.log('lat: ' + lat);
+    console.log('lng: ' + lng);
+
+    eventsCollection.create({
+        latLng: {
+            lat: lat,
+            lng: lng
+        }
+    });
+
     var marker = new google.maps.Marker({
         position: latLng,
         map: map,
@@ -56,6 +74,20 @@ function showMyLocation() {
         // Browser doesn't support Geolocation
         handleNoGeolocation(false);
     }
+}
+
+function plotExistingPoints(collection) {
+    collection.each(function(event) {
+
+        var pos = new google.maps.LatLng(event.latLng.lat,
+                    event.latLng.lng);
+
+        var marker = new google.maps.Marker({
+            map: map,
+            position: pos,
+            animation: google.maps.Animation.DROP
+        });
+    });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
