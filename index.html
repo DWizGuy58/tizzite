@@ -16,18 +16,25 @@
 
 	<!-- BackboneFire -->
 	<script src="requirements/backbonefire-0.5.1.js"></script>
+
+  <!-- GoogleMaps -->
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script>
+
+  <script src='static/js/models.js'></script>
+  <script src='static/js/views.js'></script>
+  <script src='static/js/main.js'></script>
+  <script src='static/js/map.js'></script>
+  <link rel="stylesheet" type="text/css" href="stylesheets/map/map.css">
   </head>
   <body>
-  	<!-- <input type='text' id='nameInput' placeholder='Name'>
-    <input type='text' id='messageInput' placeholder='Message'> -->
 
-    <div id="todoapp">
-      <ul id="todo-list"></ul>
-      <input type="text" id="new-todo" placeholder="New Todo" />
-      <button id="add-todo">Add</button>
+    <!--map view and panel-->
+    <div id = "map-view">
+        <div id="panel">
+          <button class = "btn btn-xs btn-primary" onclick="showMyLocation()">My Location</button>
+        </div>
+        <div id="map-canvas"></div>
     </div>
-    <script src='static/js/models.js'></script>
-    <script src='static/js/views.js'></script>
-    <script src='static/js/main.js'></script>
+    
   </body>
 </html>
