@@ -27,9 +27,6 @@ function createEvent(latLng, map) {
     var lat = latLng.lat();
     var lng = latLng.lng();
 
-    console.log('lat: ' + lat);
-    console.log('lng: ' + lng);
-
     eventsCollection.create({
         latLng: {
             lat: lat,
@@ -49,32 +46,33 @@ function createEvent(latLng, map) {
 
 // TODO: bring up popup and event data
 function viewEvent() {
-
+    var currentEvent = new Event();
+    var eventPopup = new EventPopup();
 }
 
-// Shows user's location on map
-function showMyLocation() {
-    // Current GeoLocation
-    if (navigator.geolocation) {
+// // Shows user's location on map
+// function showMyLocation() {
+//     // Current GeoLocation
+//     if (navigator.geolocation) {
 
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = new google.maps.LatLng(position.coords.latitude,
-                    position.coords.longitude);
+//         navigator.geolocation.getCurrentPosition(function (position) {
+//             var pos = new google.maps.LatLng(position.coords.latitude,
+//                     position.coords.longitude);
 
-            var marker = new google.maps.Marker({
-                map: map,
-                position: pos,
-                animation: google.maps.Animation.DROP
-            });
+//             var marker = new google.maps.Marker({
+//                 map: map,
+//                 position: pos,
+//                 animation: google.maps.Animation.DROP
+//             });
 
-        }, function () {
-            handleNoGeolocation(true);
-        });
-    } else {
-        // Browser doesn't support Geolocation
-        handleNoGeolocation(false);
-    }
-}
+//         }, function () {
+//             handleNoGeolocation(true);
+//         });
+//     } else {
+//         // Browser doesn't support Geolocation
+//         handleNoGeolocation(false);
+//     }
+// }
 
 function plotExistingPoints(collection) {
     collection.each(function(event) {
