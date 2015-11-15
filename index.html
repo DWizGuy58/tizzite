@@ -16,10 +16,7 @@
 
   <!-- GoogleMaps -->
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script>
-
-  <script src='static/js/models.js'></script>
-  <script src='static/js/views.js'></script>
-  <script src='static/js/main.js'></script>
+  
   <script src='models/event.js'></script>
   <script src='collections/events_collection.js'></script>
   <script src='views/event_popup.js'></script>
@@ -28,7 +25,9 @@
   <link rel="stylesheet" type="text/css" href="stylesheets/map/map.css">
   </head>
   <body>
-
+    <button id="fblogin-button"> Facebook Sign In</button>
+    <button id="fblogout-button"> Facebook Sign Out</button>
+    <script src='views/login/login.js'></script>
     <!--map view and panel-->
     <div id = "map-view">
         <div id="map-canvas"></div>
