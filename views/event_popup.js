@@ -2,6 +2,7 @@ var EventPopup = Backbone.View.extend({
 	el: "#modal-region",
 
 	initialize: function(options) {
+		//Need to get information
 		this.render();
 	},
 
