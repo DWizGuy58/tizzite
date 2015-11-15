@@ -21,8 +21,10 @@
   <script src='static/js/views.js'></script>
   <script src='static/js/main.js'></script>
   <script src='models/event.js'></script>
+  <script src='collections/events_collection.js'></script>
+  <script src='views/event_popup.js'></script>
   <script src='views/map.js'></script>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/map/map.css">
   </head>
   <body>
@@ -31,11 +33,27 @@
     <script src='views/login/login.js'></script>
     <!--map view and panel-->
     <div id = "map-view">
-        <div id="panel">
-          <button class = "btn btn-xs btn-primary" onclick="showMyLocation()">My Location</button>
-        </div>
+      <!--popup-->
+      <div id="modal-region">
+        <script type="text/template" id="popup_template">
+          <a href="#" class="modal" id="modal-two" aria-hidden="true"></a>
+          <div class="modal-dialog" style="height: 50px;">
+            <div class="modal-header">
+              <h2></h2>
+              <a href="#" class="btn-close" aria-hidden="true">×</a>
+            </div>
+            <div class="modal-body">
+              <p></p>
+            </div>
+            <div class="modal-footer">
+              <a href="#" class="btn">Nice!</a>
+            </div>
+          </div>
+        </script>
+      </div>
         <div id="map-canvas"></div>
     </div>
+
     
   </body>
 </html>
