@@ -25,10 +25,8 @@ $('#fblogout-button').click(function(){
   } else {
     console.log("Error: already logged out");
     // never get here because logout button shouldn't show
-  }
-  
+  }  
 })
-
 
 $('#fblogin-button').click(function(){
   $('#fblogin-button').hide()
