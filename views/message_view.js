@@ -18,35 +18,39 @@ var MessageAppView = Backbone.View.extend({
 	initialize: function(options) {
 		var that = this;
 
+		console.log(ref);
+		facebookAuth = ref.getAuth();
+		console.log(facebookAuth);
+
+		this.userName = facebookAuth.facebook.displayName;
+		this.userId = facebookAuth.facebook.id;
+
 		this.list = $("#message-list");
 		this.input = $("#new-message");
 
 		$("#send-message").click(function(e) {
-			console.log('click');
-			that.sendMessage(that.collection);
+			that.sendMessage(that);
 		});
 
 		this.listenTo(this.collection, 'add', this.appendMessage);
 	},
 
 	appendMessage: function(message) {
-		console.log('appending message: ' + message.get('text'));
 		var view = new MessageView({model: message});
 		this.list.append(view.render().el);
 	},
 
-	sendMessage: function(collection) {
-		if (!$("#new-message").val()) { 
-			console.log('empty');
+	sendMessage: function(view) {
+		if (!view.input.val()) {
 			return;
 		}
 
-		collection.create({
-			userId: 'placeholderId',
-			userName: 'placeholderName',
-			text: $("#new-message").val()
+		view.collection.create({
+			userId: view.userId,
+			userName: view.userName,
+			text: view.input.val()
 		});
 
-		$("#new-message").val('');
+		view.input.val('');
 	}
 });

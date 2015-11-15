@@ -18,6 +18,10 @@
   </head>
 
   <body>
+    <button id="fblogin-button"> Facebook Sign In</button>
+    <button id="fblogout-button"> Facebook Sign Out</button>
+    <script src='views/login/login.js'></script>
+
     <div id="messageapp">
       <ul id="message-list"></ul>
       <input type="text" id="new-message" placeholder="Enter text..." />
@@ -25,12 +29,8 @@
     </div>
 
     <script>
-      console.log('collection initializing');
       var msgCollection = new MessagesCollection({event_id: 'test'});
-      console.log(msgCollection.url());
-      console.log('messageapp initializing')
       var messageApp = new MessageAppView({collection: msgCollection});
-      // messageApp.render();
     </script>
   </body>
 </html>
