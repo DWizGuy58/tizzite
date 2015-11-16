@@ -17,6 +17,7 @@ var MessageAppView = Backbone.View.extend({
 
 	initialize: function(options) {
 		var that = this;
+		var ref = new Firebase('tizzite.firebaseio.com')
 
 		console.log(ref);
 		facebookAuth = ref.getAuth();

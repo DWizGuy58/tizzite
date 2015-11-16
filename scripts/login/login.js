@@ -5,7 +5,7 @@ $( document ).ready(function() {
   // Register the callback to be fired every time auth state changes
   ref.onAuth(authDataCallback);
 
-  // When page loads, check if user is logged in
+  // Everytime page loads, check if user is logged in
   checkLogInStatus(ref);
 
   $('#fblogout-button').click(function(){
