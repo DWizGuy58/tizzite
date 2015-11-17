@@ -17,16 +17,26 @@
   <!-- GoogleMaps -->
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script>
   
+  
+  <!-- Main Functionality -->
   <script src='models/event.js'></script>
   <script src='scripts/map/event_popup.js'></script>
   <script src='scripts/map/map.js'></script>
+  <script src='scripts/login/login.js'></script>
+  
+  <!-- CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="static/css/map/map.css">
+
+  <!-- Static (Functionality not related to the actual map itself) -->
+  <script src ='static/js/map.js'></script>
+
   </head>
   <body>
     <button id="fblogin-button"> Facebook Sign In</button>
     <button id="fblogout-button"> Facebook Sign Out</button>
-    <script src='scripts/login/login.js'></script>
+    <button id='chat-button'> Chat </button>
+    
     <!--map view and panel-->
     <div id = "map-view">
         <div id="map-canvas"></div>
